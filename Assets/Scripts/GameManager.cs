@@ -7,50 +7,34 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public List<GameObject> targets;
-    public float spawnRate = 0.5f;
+    [SerializeField] List<GameObject> Targets;
+    [SerializeField] float spawnRate = 0.5f;
     private int score;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI gameOverText;
-    public GameObject titleScreen;
+    [SerializeField] TextMeshProUGUI ScoreText;
+    [SerializeField] TextMeshProUGUI GameOverText;
+    [SerializeField] GameObject titleScreen;
+    [SerializeField] Button restartButton;
     public bool isGameActive;
-    public Button restartButton;
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-     
-        
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     IEnumerator SpawnTarget()
     {
         while (isGameActive)
         {
             yield return new WaitForSeconds(spawnRate);
-            int index = Random.Range(0, targets.Count);
-            Instantiate(targets[index]);
-            
-
+            int index = Random.Range(0, Targets.Count);
+            Instantiate(Targets[index]);
         }
     }
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        scoreText.text = "Score: " + score;
+        ScoreText.text = "Score: " + score;
     }
 
     public void GameOver()
     {
         restartButton.gameObject.SetActive(true);
-        gameOverText.gameObject.SetActive(true);
+        GameOverText.gameObject.SetActive(true);
         isGameActive = false;
     }
 

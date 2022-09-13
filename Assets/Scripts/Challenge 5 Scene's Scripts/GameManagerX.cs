@@ -7,12 +7,11 @@ using UnityEngine.UI;
 
 public class GameManagerX : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI gameOverText;
-    public GameObject titleScreen;
-    public Button restartButton; 
-
-    public List<GameObject> targetPrefabs;
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI gameOverText;
+    [SerializeField] GameObject titleScreen;
+    [SerializeField] Button restartButton; 
+    [SerializeField] List<GameObject> targetPrefabs;
 
     private int score;
     private float spawnRate = 1.5f;
@@ -25,7 +24,6 @@ public class GameManagerX : MonoBehaviour
     // Start the game, remove title screen, reset score, and adjust spawnRate based on difficulty button clicked
     public void StartGame(int difficulty)
     {
-        
         isGameActive = true;
         score = 0;
         StartCoroutine(SpawnTarget());
@@ -59,7 +57,6 @@ public class GameManagerX : MonoBehaviour
 
         Vector3 spawnPosition = new Vector3(spawnPosX, spawnPosY, 0);
         return spawnPosition;
-
     }
 
     // Generates random square index from 0 to 3, which determines which square the target will appear in

@@ -6,10 +6,9 @@ public class TargetX : MonoBehaviour
 {
     private Rigidbody rb;
     private GameManagerX gameManagerX;
-    public int pointValue;
-    public GameObject explosionFx;
-
-    public float timeOnScreen = 1.0f;
+    [SerializeField] int pointValue;
+    [SerializeField] GameObject explosionFx;
+    [SerializeField] float timeOnScreen = 1.0f;
 
     private float minValueX = -3.75f; // the x value of the center of the left-most square
     private float minValueY = -3.75f; // the y value of the center of the bottom-most square

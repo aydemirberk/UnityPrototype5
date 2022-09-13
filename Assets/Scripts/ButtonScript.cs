@@ -5,21 +5,16 @@ using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
-    public Button button;
-    public GameManager gameManager;
-    public int difficulty;
+    [SerializeField] Button button;
+    [SerializeField] GameManager gameManager;
+    int difficulty;
+
     // Start is called before the first frame update
     void Start()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(SetDifficulty);
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SetDifficulty()
